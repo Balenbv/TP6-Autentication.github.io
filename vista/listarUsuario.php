@@ -28,6 +28,7 @@ echo $abmUsuario->buscar(null);
     //un script Vista/listarUsuario.php que liste los usuario registrados
     //permita actualizar sus datos accion/actualizarLogin.php
     // o realizar un borrado logico y accion/eliminarLogin.php
+    
 ?>
 
 

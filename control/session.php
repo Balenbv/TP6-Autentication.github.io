@@ -1,42 +1,42 @@
 <?php 
 
  class Session {
-    private $usuario;
+    private $idUsuario;
     private $rol;
  
     public function __construct() {
         session_start();
     }
 
-    //getUsuario().Devuelve el usuario logeado.
-    public function getUsuario(){
-        return $this->usuario;
+    //getidUsuario().Devuelve el idUsuario logeado.
+    public function getIdUsuario(){
+        return $this->idUsuario;
     }
 
-    // getRol(). Devuelve el rol del usuario  logeado.
+    // getRol(). Devuelve el rol del idUsuario  logeado.
     public function getRol(){
         return $this->rol;
     }
     
-    //niciar($nombreUsuario,$password). Actualiza las variables de sesion con los valores ingresados.
-    public function iniciar($nombreUsuario ,$psw){
-        session_start();
+    //niciar($nombreidUsuario,$password). Actualiza las variables de sesion con los valores ingresados.
+    public function iniciar($nombreidUsuario ,$psw){
         $bool = false;
-        if ($nombreUsuario != null && $psw != null) {
+        if (validar()) {
+            session_start();
             $_SESSION['psw'] = $psw;
-            $_SESSION['nombre'] = $nombreUsuario;
+            $_SESSION['nombre'] = $nombreidUsuario;
             $bool = true;
         }
         return $bool;
     }
 
-    // validar(). Valida si la sesion actual tiene usuario y password  validos. Devuelve true o false.
+    // validar(). Valida si la sesion actual tiene idUsuario y password  validos. Devuelve true o false.
     public function validar(){
         $bool = false;
         session_start();
 
         if (isset($_SESSION['nombre']) && isset($_SESSION['psw'])) {
-            if(getUsuario()->getUsNombre() == $_SESSION['nombre'] && getUsuario()->getUsPass() == $_SESSION['psw']){
+            if(getIdUsuario()->getUsNombre() == $_SESSION['nombre'] && getIdUsuario()->getUsPass() == $_SESSION['psw']){
                 $bool = true;
             }
         }
