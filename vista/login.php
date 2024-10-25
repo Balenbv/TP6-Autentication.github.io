@@ -23,15 +23,20 @@
     <script>
           $(document).ready(function() {
             $('#loginForm').on('submit', function(e) {
+                
                 var password = $('#usPass').val();
                 var encryptedPassword = hex_md5(password);
                 $('#usPass').val(encryptedPassword);
+
                 setTimeout(function() {
                     $('#usPass').val(''); // Limpiar el campo de contraseña después de enviar el formulario
                 }, 1);
+
             });
         });
+        
     </script>
+
 </body>
 
 

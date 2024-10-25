@@ -6,7 +6,8 @@ header ("Cache-Control: no-cache,must-revalidate");
 // CONFIGURACION APP//
 /////////////////////////////
 
-$PROYECTO ='TP6-Autentication';
+//cambie la ruta porque estaba una que no era la ruta de la carpeta 
+$PROYECTO ='TP6-AUTENTICATION.GITHUB.IO';
 
 //variable que almacena el directorio del proyecto
 $ROOT = $_SERVER['DOCUMENT_ROOT']."/$PROYECTO/";

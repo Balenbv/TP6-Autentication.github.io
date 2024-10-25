@@ -28,12 +28,13 @@
         $arrayLlaves['usPass']= $psw;
         $arrayLlaves['usDeshabilitado']= 'null';
 
-        $cantUsuarios = $objUsuario->buscar($arrayLlaves);
+        $usuarios = $objUsuario->buscar($arrayLlaves);
 
-        if(count($cantUsuarios) > 0){
+        if(count($usuarios) > 0){
             if($this->validar()){
-                $this->getIdUsuario()->setUsNombre() = $cantUsuarios[0]->getUsNombre();
-                $this->getIdUsuario()->setUsPass() = $cantUsuarios[0]->getUsPass();
+                $usuario = $usuarios[0];
+                $this->getIdUsuario()->setUsNombre($usuario->getUsNombre());
+                $this->getIdUsuario()->setUsPass($usuario->getUsPass());
                 $bolean = true;
             }
 
