@@ -25,9 +25,9 @@ function verEstructura($e){
 
 spl_autoload_register(function ($class_name){
     $directorys = array(
-        $_SESSION['ROOT'].'src/modelo/',
-        $_SESSION['ROOT'].'src/modelo/conector/',
-        $_SESSION['ROOT'].'src/control/',
+        $_SESSION['ROOT'].'modelo/',
+        $_SESSION['ROOT'].'modelo/conector/',
+        $_SESSION['ROOT'].'control/',
     );
     $i = 0;
     $LoEncontro = false;
@@ -39,5 +39,6 @@ spl_autoload_register(function ($class_name){
             $i++;
         }
     }
+
     return $LoEncontro;
 });

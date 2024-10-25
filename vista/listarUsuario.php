@@ -1,10 +1,11 @@
 <?php 
-include_once '../../config.php';
+include_once '../config.php';
+
 
 $abmUsuario = new abmUsuario();
-$usuarios = $abmUsuario->buscar(null);
+echo $abmUsuario->buscar(null);
 
-    if (count($usuarios) > 0) {
+    if (isset($usuarios)){
         foreach ($usuarios as $usuario) {
             
             $usuarioId = $usuario->getId();

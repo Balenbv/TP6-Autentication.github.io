@@ -19,7 +19,7 @@
         <!--un script Vista/login.php que invoque al script accion/verificarLogin.php el cual redirecciona al 
         script Vista/paginaSegura.php si los datos ingresados se corresponden con un usuario/pass 
         registrados. Caso contrario se redirecciona nuevamente al script Vista/login.php-->
-
+        <a href="./index.php"><button>Volver</button></a>
         
     </body>
 </html>

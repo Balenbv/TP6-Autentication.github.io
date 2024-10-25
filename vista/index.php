@@ -1,4 +1,4 @@
 <?php
+echo "<a href='./login.php'><button>Login</button></a>";
 
-
-echo "<h1> Punto 1 </h1>";
+echo "<a href='./listarUsuario.php'><button>listar usuarios</button></a>";

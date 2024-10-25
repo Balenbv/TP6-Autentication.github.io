@@ -108,7 +108,7 @@ class abmUsuario{
             if (isset($param['usDeshabilitado']))
                 $where .= " and usDeshabilitado ='" . $param['usDeshabilitado'] . "'";
         }
-        $obj = new Persona();
+        $obj = new Usuario();
         $arreglo = $obj->listar($where);
         return $arreglo;
     }

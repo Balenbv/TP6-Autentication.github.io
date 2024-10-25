@@ -107,15 +107,11 @@ class Usuario extends BaseDatos{
         $arreglo = null;
         $base=new BaseDatos();
         $sql=" SELECT * FROM usuario ";
-        if ($param!="") {
-            $consulta=$consulta.' where '.$param;
-        }
-
-        if ($parametro != "") {
-            $sql .= ' WHERE '.$parametro;
+        
+        if ($param != "") {
+            $sql .= ' WHERE '.$param;
         }
         $res = $base->Ejecutar($sql);
-
         if($res>-1){
             if($res>0){
                 $arreglo= array();

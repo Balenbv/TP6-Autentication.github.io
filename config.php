@@ -6,13 +6,12 @@ header ("Cache-Control: no-cache,must-revalidate");
 // CONFIGURACION APP//
 /////////////////////////////
 
-$PROYECTO ='TP6-Autenticacion';
+$PROYECTO ='TP6-Autentication';
 
 //variable que almacena el directorio del proyecto
 $ROOT = $_SERVER['DOCUMENT_ROOT']."/$PROYECTO/";
 
-
-include_once($ROOT.'utils/utils.php');
+include_once($ROOT.'Utils/utils.php');
 
 
 // Variable que define la pagina de autenticacion del proyecto
