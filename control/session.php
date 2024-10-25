@@ -16,24 +16,25 @@
     public function getRol(){
         return $this->rol;
     }
-    
+        
 
     public function iniciar($nombreidUsuario ,$psw){
         session_start();
         $bolean = false;
         $objUsuario = new abmUsuario();
         $arrayLlaves = [];
-
+        
         $arrayLlaves['usNombre']= $nombreUsuario;
         $arrayLlaves['usPass']= $psw;
         $arrayLlaves['usDeshabilitado']= 'null';
 
         $cantUsuarios = $objUsuario->buscar($arrayLlaves);
 
-        if($cantUsuarios > 0){
+        if(count($cantUsuarios) > 0){
             if($this->validar()){
-                getIdUsuario()->getUsNombre() == $usuario->getUsNombre();
-                getIdUsuario()->getUsPass() == $usuario->getUsPass();
+                $this->getIdUsuario()->setUsNombre() = $cantUsuarios[0]->getUsNombre();
+                $this->getIdUsuario()->setUsPass() = $cantUsuarios[0]->getUsPass();
+                $bolean = true;
             }
 
         }else{
@@ -42,16 +43,23 @@
 
         return $bolean;
     }
-
+    
+    
     // validar(). Valida si la sesion actual tiene idUsuario y password  validos. Devuelve true o false.
-    public function validar(){
+     public function validar(){
         $boolean = false;
-
-        if($this->activa() && isset($_SESSION['idusuario'])){
-            $boolean = true;
+        $objUsuario = new abmUsuario();
+        
+        if($this->activa()){
+            if($objUsuario->getUsNombre() == $this->getIdUsuario->getUsNombre() && $objUsuario->getUsNombre() == $objUsuario->getUsPass()){
+                $boolean = true;
+            }
         }
+
         return $boolean;
     }
+
+   
 
     //activa(). Devuelve true o false si la sesion esta activa o no. 
     public function activa(){

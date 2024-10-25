@@ -60,7 +60,7 @@ class UsuarioRol extends BaseDatos{
         $resp = false;
         $base=new BaseDatos();
         if($base->Iniciar()){
-            $consultaModifica="UPDATE UsuarioRol SET idRol=     '".$this->getIdRol()."'      WHERE idUsuario=".$this->getIdUsuario();
+            $consultaInsertar="INSERT INTO usuariorol(idusuario, idrol) VALUES ('".$this->getIdUsuario()."','".$this->getIdRol()."')";
             if($base->Ejecutar($consultaModifica)){
                 $resp=true;
             } else {
