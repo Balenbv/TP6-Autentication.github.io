@@ -22,5 +22,12 @@ echo $abmUsuario->buscar(null);
         echo "ta vacioooooo";
     }
 
+    echo "<a href='./index.php'><button>Volver</button></a>";
+
+    //registrarlos
+    //un script Vista/listarUsuario.php que liste los usuario registrados
+    //permita actualizar sus datos accion/actualizarLogin.php
+    // o realizar un borrado logico y accion/eliminarLogin.php
+?>
 
 
