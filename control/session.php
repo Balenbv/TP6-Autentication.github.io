@@ -1,5 +1,4 @@
 <?php 
-
  class Session {
     private $idUsuario;
     private $rol;
@@ -18,30 +17,40 @@
         return $this->rol;
     }
     
-    //niciar($nombreidUsuario,$password). Actualiza las variables de sesion con los valores ingresados.
+
     public function iniciar($nombreidUsuario ,$psw){
-        $bool = false;
-        if (validar()) {
-            session_start();
-            $_SESSION['psw'] = $psw;
-            $_SESSION['nombre'] = $nombreidUsuario;
-            $bool = true;
+        session_start();
+        $bolean = false;
+        $objUsuario = new abmUsuario();
+        $arrayLlaves = [];
+
+        $arrayLlaves['usNombre']= $nombreUsuario;
+        $arrayLlaves['usPass']= $psw;
+        $arrayLlaves['usDeshabilitado']= 'null';
+
+        $cantUsuarios = $objUsuario->buscar($arrayLlaves);
+
+        if($cantUsuarios > 0){
+            if($this->validar()){
+                getIdUsuario()->getUsNombre() == $usuario->getUsNombre();
+                getIdUsuario()->getUsPass() == $usuario->getUsPass();
+            }
+
+        }else{
+            $this->cerrar();
         }
-        return $bool;
+
+        return $bolean;
     }
 
     // validar(). Valida si la sesion actual tiene idUsuario y password  validos. Devuelve true o false.
     public function validar(){
-        $bool = false;
-        session_start();
+        $boolean = false;
 
-        if (isset($_SESSION['nombre']) && isset($_SESSION['psw'])) {
-            if(getIdUsuario()->getUsNombre() == $_SESSION['nombre'] && getIdUsuario()->getUsPass() == $_SESSION['psw']){
-                $bool = true;
-            }
+        if($this->activa() && isset($_SESSION['idusuario'])){
+            $boolean = true;
         }
-        
-        return $bool;
+        return $boolean;
     }
 
     //activa(). Devuelve true o false si la sesion esta activa o no. 
