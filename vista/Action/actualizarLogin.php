@@ -5,8 +5,9 @@ $datosUsuario = data_submitted();
 verEstructura($datosUsuario);
 
 $abmUsuario = new abmUsuario();
-$datosUsuario['accion'] = 'editar';
+print_r($abmUsuario->obtenerDatos($datosUsuario));
 
+$datosUsuario['accion'] = 'editar';
 $abmUsuario->abm($datosUsuario);
 ?>
 

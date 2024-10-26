@@ -49,8 +49,8 @@ class abmUsuario{
 
     private function seteadosCamposClaves($param){
         $resp = false;
-
-        if( isset($param['idUsuario'])){
+        
+        if(isset($param['idUsuario'])){
             $resp = true;
         }
 
@@ -136,11 +136,13 @@ class abmUsuario{
         $result = [];
         if (!empty($arreglo)) {
             foreach ($arreglo as $usuario) {
-            $result[] = ['idUsuario' => $usuario->getIdUsuario(),
-            'usNombre' => $usuario->getUsNombre(),
-            'usPass' => $usuario->getUsPass(),
-            'usMail' => $usuario->getUsMail(),
-            'usDeshabilitado' => $usuario->getUsDeshabilitado()];
+                $result[] = [
+                'idUsuario' => $usuario->getIdUsuario(),
+                'usNombre' => $usuario->getUsNombre(),
+                'usPass' => $usuario->getUsPass(),
+                'usMail' => $usuario->getUsMail(),
+                'usDeshabilitado' => $usuario->getUsDeshabilitado()
+                ];
             }
         }
         return $result;
