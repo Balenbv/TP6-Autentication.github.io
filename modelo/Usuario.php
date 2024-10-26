@@ -44,11 +44,10 @@ class Usuario extends BaseDatos{
         return $this->usDeshabilitado;
     }
 
-    public function setUsDeshabilitado($usDeshabilitado){
-        $this->usDeshabilitado = $usDeshabilitado;
+    public function setUsDeshabilitado($usDeshabilitado = null) {
+        $this->usDeshabilitado = $usDeshabilitado ?? "0.0.0";
     }
-
-
+    
     public function cargar($datosUsuario){
         $this->setIdUsuario($datosUsuario['idUsuario']);
         $this->setUsNombre($datosUsuario['usNombre']);

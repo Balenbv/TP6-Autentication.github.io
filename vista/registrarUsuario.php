@@ -12,12 +12,19 @@
 </head>
 
 <body>
-    <form action="../vista/Action/verificarLogin.php" id="loginForm"method="POST">
+    <form action="../vista/Action/registroLogin.php" id="loginForm"method="POST">
         <label for="usNombre">Nombre de Usuario</label>
         <input type="text" name="usNombre" id="usNombre" required>
+        <br>
         <label for="usPass">Contraseña</label>
         <input type="password" name="usPass" id="usPass" required>
+        <br>
+        <label for="usMail">Ingrese su mail</label>
+        <input type="text" name="usMail" id="usMail" required>
+        <br>
+
         <input type="submit" value="Ingresar">
+
     </form>
 
     <script>

@@ -46,10 +46,10 @@ class abmUsuario{
         }
     }
 
-    private function setadosCamposClaves($param){
+    private function seteadosCamposClaves($param){
         $resp = false;
 
-        if( isset($param['idUsuario']) ){
+        if( isset($param['idUsuario'])){
             $resp = true;
         }
 

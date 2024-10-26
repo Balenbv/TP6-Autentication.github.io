@@ -20,7 +20,7 @@
         <input type="password" name="usPass" id="usPass" required>
         <input type="submit" value="Ingresar">
     </form>
-    <a href='./index.php'><button>Volver al index</button></a>
+    <a href='./index.php'><button>Volver al index</button></a>;
 </body>
 
 </html>

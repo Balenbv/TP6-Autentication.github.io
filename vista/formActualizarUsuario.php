@@ -14,11 +14,18 @@
 <body>
     <h1>Actualizar Usuario</h1>
     <form action="../vista/Action/actualizarLogin.php" id="loginForm"method="POST">
-        <label for="usNombre">Nombre de Usuario</label>
+    <label for="usNombre">Nombre de Usuario</label>
         <input type="text" name="usNombre" id="usNombre" required>
+        <br>
         <label for="usPass">Contraseña</label>
         <input type="password" name="usPass" id="usPass" required>
+        <br>
+        <label for="usMail">Ingrese su mail</label>
+        <input type="text" name="usMail" id="usMail" required>
+        <br>
+
         <input type="submit" value="Ingresar">
+
     </form>
     <a href='./index.php'><button>Volver al index</button></a>
 </body>
