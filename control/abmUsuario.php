@@ -130,7 +130,7 @@ class abmUsuario{
                 $where .= " and usDeshabilitado = '" . $param['usDeshabilitado'] . "'";
         }
         
-        $obj = new usuario();
+        $obj = new Usuario();
         
         $arreglo = $obj->listar($where);
         $result = [];
@@ -138,7 +138,6 @@ class abmUsuario{
             foreach ($arreglo as $usuario) {
             $result[] = ['idUsuario' => $usuario->getIdUsuario(),
             'usNombre' => $usuario->getUsNombre(),
-            'usPass' => $usuario->getUsPass(),
             'usPass' => $usuario->getUsPass(),
             'usMail' => $usuario->getUsMail(),
             'usDeshabilitado' => $usuario->getUsDeshabilitado()];

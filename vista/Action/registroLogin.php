@@ -6,7 +6,7 @@ $abmUsuario = new abmUsuario();
 $datosUsuario = data_submitted();
 $abmUsuario->buscar($datosUsuario);
 
-$datos['accion'] == 'nuevo'
+$datosUsuario['accion'] = 'nuevo';
 
 verEstructura($datosUsuario);
 

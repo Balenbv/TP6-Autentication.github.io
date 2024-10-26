@@ -5,7 +5,7 @@ $datosUsuario = data_submitted();
 verEstructura($datosUsuario);
 
 $abmUsuario = new abmUsuario();
-$datosUsuario['accion'] = 'nuevo';
+$datosUsuario['accion'] = 'borrar';
 
 $abmUsuario->abm($datosUsuario);
 
