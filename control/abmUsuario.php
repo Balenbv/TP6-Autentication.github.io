@@ -29,21 +29,22 @@ class abmUsuario{
     public function cargarObjeto($parametro){
         $obj = null;
 
-        if( array_key_exists('idUsuario', $parametro) 
-            and array_key_exists('usNombre', $parametro)){
+        if( array_key_exists('idusuario',$param)  and array_key_exists('usnombre',$param) and array_key_exists('uspass',$param)
+            and array_key_exists('usmail',$param) and array_key_exists('usdeshabilitado',$param)){
             $obj = new Usuario();
-            $obj->cargar($parametro);
+            $obj->setear($param['idusuario'],$param['usnombre'],$param['uspass'],$param['usmail'],$param['usdeshabilitado']);
         }
+        
+        return $obj;
     }
 
     private function cargarObjetosConClave($param){
         $obj = null;
-
-        if( isset($param['idUsuario']) ){
+        if( isset($param['idusuario']) ){
             $obj = new Usuario();
-            $obj->setIdUsuario($param['idUsuario']);
-            $obj->cargar();
+            $obj->setear($param['idusuario'], null,null,null,null);
         }
+        return $obj;
     }
 
     private function seteadosCamposClaves($param){
@@ -58,6 +59,7 @@ class abmUsuario{
 
     public function alta($param) {
         $resp = false;
+        $param['idusuario'] = null;
         $elObjtTabla = $this->cargarObjeto($param);
         if ($elObjtTabla != null && $elObjtTabla->insertar()) {
             $resp = true;
@@ -128,18 +130,18 @@ class abmUsuario{
                 $where .= " and usDeshabilitado = '" . $param['usDeshabilitado'] . "'";
         }
         
-        $obj = new Persona();
+        $obj = new usuario();
         
         $arreglo = $obj->listar($where);
         $result = [];
         if (!empty($arreglo)) {
-            foreach ($arreglo as $persona) {
-            $result[] = ['idUsuario' => $persona->getIdUsuario(),
-            'usNombre' => $persona->getUsNombre(),
-            'usPass' => $persona->getUsPass(),
-            'usPass' => $persona->getUsPass(),
-            'usMail' => $persona->getUsMail(),
-            'usDeshabilitado' => $persona->getUsDeshabilitado()];
+            foreach ($arreglo as $usuario) {
+            $result[] = ['idUsuario' => $usuario->getIdUsuario(),
+            'usNombre' => $usuario->getUsNombre(),
+            'usPass' => $usuario->getUsPass(),
+            'usPass' => $usuario->getUsPass(),
+            'usMail' => $usuario->getUsMail(),
+            'usDeshabilitado' => $usuario->getUsDeshabilitado()];
             }
         }
         return $result;
