@@ -26,23 +26,27 @@ class abmUsuario{
         return $resp;
     }
       
-    public function cargarObjeto($parametro){
+    public function cargarObjeto($param){
         $obj = null;
 
-        if( array_key_exists('idusuario',$param)  and array_key_exists('usnombre',$param) and array_key_exists('uspass',$param)
-            and array_key_exists('usmail',$param) and array_key_exists('usdeshabilitado',$param)){
+        if( array_key_exists('idUsuario',$param)  and array_key_exists('usNombre',$param) and array_key_exists('usPass',$param)and array_key_exists('usMail',$param)){
             $obj = new Usuario();
-            $obj->setear($param['idusuario'],$param['usnombre'],$param['uspass'],$param['usmail'],$param['usdeshabilitado']);
+            $obj->cargar($param['idUsuario'],$param['usNombre'],$param['usPass'],$param['usMail']);
         }
-        
+
+        ///////////////////////////////////
+        $debug = ($obj == null) ? "el objeto no tiene nada" : "el objeto tiene cosas";
+        echo $debug;
+        ///////////////////////////////////
+
         return $obj;
     }
 
     private function cargarObjetosConClave($param){
         $obj = null;
-        if( isset($param['idusuario']) ){
+        if(isset($param['idUsuario'])){
             $obj = new Usuario();
-            $obj->setear($param['idusuario'], null,null,null,null);
+            $obj->cargar($param['idUsuario'], null,null,null,null);
         }
         return $obj;
     }
@@ -59,11 +63,18 @@ class abmUsuario{
 
     public function alta($param) {
         $resp = false;
-        $param['idusuario'] = null;
+        $param['idUsuario'] = null;
         $elObjtTabla = $this->cargarObjeto($param);
+        echo $elObjtTabla;
         if ($elObjtTabla != null && $elObjtTabla->insertar()) {
             $resp = true;
         }
+
+        ///////////////////////////////////
+        $debug = ($resp) ? "Di el alta" : "No se dio el alta";
+        echo $debug;
+        ///////////////////////////////////
+
         return $resp;
     }
 

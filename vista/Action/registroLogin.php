@@ -4,8 +4,10 @@ include '../../config.php';
 
 $abmUsuario = new abmUsuario();
 $datosUsuario = data_submitted();
-$abmUsuario->buscar($datosUsuario);
 $datosUsuario['accion'] = 'nuevo';
+
+$abmUsuario->abm($datosUsuario);
+
 verEstructura($datosUsuario);
 
 

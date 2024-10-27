@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <form action="../vista/Action/registroLogin.php" id="loginForm"method="POST">
+    <form action="../vista/Action/registroLogin.php" id="loginForm" method="POST">
         <label for="usNombre">Nombre de Usuario</label>
         <input type="text" name="usNombre" id="usNombre" required>
         <br>

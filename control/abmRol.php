@@ -36,7 +36,7 @@ class abmRol{
             $obj = null;
             if (array_key_exists('idRol', $param) && array_key_exists('rolDescripcion', $param)) {
                 $obj = new Rol();
-                $obj->setear($param['idRol'], $param['rolDescripcion']);
+                $obj->cargar($param['idRol'], $param['rolDescripcion']);
                
             }
             return $obj;
@@ -52,7 +52,7 @@ class abmRol{
             
             if (isset($param['idRol'])) {
                 $obj = new Rol();
-                $obj->setear($param['idRol'], null, null, null);
+                $obj->cargar($param['idRol'], null, null, null);
             }
             return $obj;
         }

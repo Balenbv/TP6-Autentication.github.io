@@ -74,8 +74,9 @@ class Usuario extends BaseDatos{
     }
     
     public function modificar(){
-        $resp = false;
         $base=new BaseDatos();
+        $resp = false;
+       
         if($base->Iniciar()){
             $consultaModifica="UPDATE usuario SET usNombre='".$this->getUsNombre()."',usPass='".$this->getUsPass()."',usMail='".$this->getUsMail()."',usDeshabilitado='".$this->getUsDeshabilitado()."' WHERE idUsuario=".$this->getIdUsuario();
             if($base->Ejecutar($consultaModifica)){
