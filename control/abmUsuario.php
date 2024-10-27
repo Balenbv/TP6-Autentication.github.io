@@ -147,5 +147,7 @@ class abmUsuario{
         }
         return $result;
     }
+
+
     
 }

@@ -210,10 +210,30 @@ class BaseDatos extends PDO {
           // print_r($e);
           // echo "</pre>";
        }
-       
-       
    }
    
+
+       /**
+     * Devuelve el id de un campo autoincrement utilizado como clave de una tabla
+     * Retorna el id numerico del registro insertado, devuelve null en caso que la ejecucion de la consulta falle
+     *
+     * @param string $consulta
+     * @return int id de la tupla insertada
+     */
+    public function devuelveIDInsercion($consulta){
+        $resp = null;
+        unset($this->ERROR);
+        $this->QUERY = $consulta;
+        if ($this->RESULT = mysqli_query($this->CONEXION,$consulta)){
+            $id = mysqli_insert_id($this->CONEXION);
+            $resp =  $id;
+        } else {
+            $this->ERROR =mysqli_errno( $this->CONEXION) . ": " . mysqli_error( $this->CONEXION);
+           
+        }
+    return $resp;
+    }
+    
    private function setIndice ($valor){
        $this->indice = $valor;
    }
