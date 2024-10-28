@@ -14,4 +14,3 @@ try{
 ?>
 
 <h1>Se actualizo correctamente sus datos</h1>
-

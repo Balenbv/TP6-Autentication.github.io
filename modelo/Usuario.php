@@ -60,8 +60,8 @@ class Usuario extends BaseDatos{
         $base=new BaseDatos();
         $consultaInsertar="INSERT INTO usuario(usNombre, usPass, usMail, usDeshabilitado) VALUES 
         ('".$this->getUsNombre()."','".$this->getUsPass()."','".$this->getUsMail()."','".$this->getUsDeshabilitado()."')";
-        
         $resp= false;
+        echo "<h1>Consulta: ".$consultaInsertar."</h1>";
         if($base->Iniciar()){
             if($id = $base->Ejecutar($consultaInsertar)){
                 $this->setIdUsuario($id);
