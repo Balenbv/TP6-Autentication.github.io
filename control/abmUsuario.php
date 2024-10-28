@@ -28,16 +28,11 @@ class abmUsuario{
       
     public function cargarObjeto($param){
         $obj = null;
-
+        
         if( array_key_exists('idUsuario',$param)  and array_key_exists('usNombre',$param) and array_key_exists('usPass',$param)and array_key_exists('usMail',$param)){
             $obj = new Usuario();
-            $obj->cargar($param['idUsuario'],$param['usNombre'],$param['usPass'],$param['usMail']);
+            $obj->cargar($param);
         }
-
-        ///////////////////////////////////
-        $debug = ($obj == null) ? "el objeto no tiene nada" : "el objeto tiene cosas";
-        echo $debug;
-        ///////////////////////////////////
 
         return $obj;
     }
@@ -53,7 +48,6 @@ class abmUsuario{
 
     private function seteadosCamposClaves($param){
         $resp = false;
-        
         if(isset($param['idUsuario'])){
             $resp = true;
         }
@@ -64,28 +58,26 @@ class abmUsuario{
     public function alta($param) {
         $resp = false;
         $param['idUsuario'] = null;
+
         $elObjtTabla = $this->cargarObjeto($param);
-        echo $elObjtTabla;
         if ($elObjtTabla != null && $elObjtTabla->insertar()) {
             $resp = true;
         }
-
-        ///////////////////////////////////
-        $debug = ($resp) ? "Di el alta" : "No se dio el alta";
-        echo $debug;
-        ///////////////////////////////////
-
+        
         return $resp;
     }
 
     public function baja($param) {
         $resp = false;
-        if ($this->seteadosCamposClaves($param)) {
-            $elObjtTabla = $this->cargarObjetoConClave($param);
-            if ($elObjtTabla != null && $elObjtTabla->eliminar()) {
-                $resp = true;
-            }
+        $param['idUsuario'] = null;
+        $param['usDeshabilitado'] = date('Y-m-d');
+        
+        $elObjtTabla = $this->cargarObjetosConClave($param);
+        if ($elObjtTabla != null && $elObjtTabla->eliminar()) {
+            $resp = true;
         }
+        $mensaje = $resp ? "true" : "false";
+        echo $mensaje;
 
         return $resp;
     }
@@ -99,7 +91,7 @@ class abmUsuario{
         $resp = false;
         if ($this->seteadosCamposClaves($param)) {
             $elObjtTabla = $this->cargarObjeto($param);
-            if ($elObjtTabla != null && $elObjtTabla->modificar()) {
+            if ($elObjtTabla != null && $elObjtTabla->modificar()){
                 $resp = true;
             }
         }
