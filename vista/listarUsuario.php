@@ -20,15 +20,9 @@ $usuarios =  $abmUsuario->obtenerDatos(null);
 
     echo "<br>";
     echo "<a href='./index.php'><button>Volver al index</button></a>";
-<<<<<<< HEAD
-    echo "<a href='./login.php'><button>Registrar Usuario</button></a>";
-    echo "<a href='./Action/actualizarLogin.php'><button>actualizar datos del usuario</button></a>";
-    echo "<a href='./Action/eliminarLogin.php'><button>eliminar datos del usuario</button></a>";
-=======
     echo "<a href='./registrarUsuario.php'><button>Registrar Usuario</button></a>";
     echo "<a href='./formActualizarUsuario.php'><button>actualizar datos del usuario</button></a>";
     echo "<a href='./formBorrarUsuario.php'><button>eliminar datos del usuario</button></a>";
->>>>>>> ramaDiego
 
     
 ?>
