@@ -4,16 +4,16 @@ include_once '../config.php';
 echo "<h1>Nombre de los Usuarios</h1>";
 
 $abmUsuario = new abmUsuario();
-$usuarios =  $abmUsuario->buscar(null);
+$usuarios =  $abmUsuario->obtenerDatos(null);
 
     if (isset($usuarios)){
         foreach ($usuarios as $usuario) {
-            $usNombre = $usuario->getUsNombre();
-            $uspass = $usuario->getUsPass();
-
-            echo "Nombre:".$usNombre."<br>";
+            echo "Nombre: ".$usuario['usNombre']."<br>";
+            echo "Mail: ".$usuario['usMail']."<br>";
+            echo "Deshabilitado: ".$usuario['usDeshabilitado']."<br>";
+            echo "<br>";
         }
-        
+
     } else {
         echo "no hay nada";
     }
