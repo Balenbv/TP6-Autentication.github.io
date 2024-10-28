@@ -44,7 +44,7 @@ class Usuario extends BaseDatos{
 	}
     
     public function setUsDeshabilitado($usDeshabilitado) {
-        $this->usDeshabilitado = ($usDeshabilitado != null) ? $usDeshabilitado : "0.0.0";
+        $this->usDeshabilitado = $usDeshabilitado;
     }
     
     public function cargar($datosUsuario){
@@ -52,8 +52,10 @@ class Usuario extends BaseDatos{
         $this->setUsNombre($datosUsuario['usNombre']);
         $this->setUsPass($datosUsuario['usPass']);
         $this->setUsMail($datosUsuario['usMail']);
+        if($datosUsuario['usDeshabilitado'] = '0000-00-00 00:00:00'){
+            $usdeshabilitado = "null";
+        }
         $this->setUsDeshabilitado($datosUsuario['usDeshabilitado']);
-
     }
 
     public function insertar(){
@@ -94,16 +96,19 @@ class Usuario extends BaseDatos{
     
     public function eliminar($param) {
         $resp = false;
+        $base=new BaseDatos();
+
+        print_r($param);
         $sql="UPDATE usuario SET '".$this->getUsDeshabilitado()."' WHERE idUsuario=".$this->getIdUsuario();
 
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
             } else {
-                $this->setMensajeOperacion("usuario->eliminar: ".$base->getError());
+                $this->setMensajeOperacion("usuario->borrado logico: ".$base->getError());
             }
         } else {
-            $this->setMensajeOperacion("usuario->eliminar: ".$base->getError());
+            $this->setMensajeOperacion("usuario->borrado logico: ".$base->getError());
         }
 
         return $resp;
@@ -112,7 +117,7 @@ class Usuario extends BaseDatos{
 
     public function listar($param=''){
         $arreglo = null;
-        $base=new BaseDatos();
+        $base = new BaseDatos();
         $sql=" SELECT * FROM usuario ";
         
         if ($param != "") {

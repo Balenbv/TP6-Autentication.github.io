@@ -29,7 +29,7 @@ class abmUsuario{
     public function cargarObjeto($param){
         $obj = null;
         
-        if( array_key_exists('idUsuario',$param)  and array_key_exists('usNombre',$param) and array_key_exists('usPass',$param)and array_key_exists('usMail',$param)){
+        if(array_key_exists('idUsuario',$param) and array_key_exists('usNombre',$param) and array_key_exists('usPass',$param)and array_key_exists('usMail',$param)){
             $obj = new Usuario();
             $obj->cargar($param);
         }
@@ -58,7 +58,8 @@ class abmUsuario{
     public function alta($param) {
         $resp = false;
         $param['idUsuario'] = null;
-
+        $param['usDeshabilitado'] = '0000-00-00 00:00:00';
+        
         $elObjtTabla = $this->cargarObjeto($param);
         if ($elObjtTabla != null && $elObjtTabla->insertar()) {
             $resp = true;
@@ -70,15 +71,13 @@ class abmUsuario{
     public function baja($param) {
         $resp = false;
         $param['idUsuario'] = null;
+        $param['usMail'] = null;
         $param['usDeshabilitado'] = date('Y-m-d');
         
-        $elObjtTabla = $this->cargarObjetosConClave($param);
-        if ($elObjtTabla != null && $elObjtTabla->eliminar()) {
+        $elObjtTabla = $this->cargarObjeto($param);
+        if ($elObjtTabla != null && $elObjtTabla->eliminar($param)) {
             $resp = true;
         }
-        $mensaje = $resp ? "true" : "false";
-        echo $mensaje;
-
         return $resp;
     }
 
