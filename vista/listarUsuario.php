@@ -23,9 +23,9 @@ echo $abmUsuario->buscar(null);
     }
 
     echo "<a href='./index.php'><button>Volver al index</button></a>";
-    echo "<a href='./login'><button>Registrar Usuario</button></a>";
-    echo "<a href='./Action/actualizarLogin'><button>actualizar datos del usuario</button></a>";
-    echo "<a href='./Action/eliminarLogin'><button>eliminar datos del usuario</button></a>";
+    echo "<a href='./login.php'><button>Registrar Usuario</button></a>";
+    echo "<a href='./Action/actualizarLogin.php'><button>actualizar datos del usuario</button></a>";
+    echo "<a href='./Action/eliminarLogin.php'><button>eliminar datos del usuario</button></a>";
 
     
 ?>
