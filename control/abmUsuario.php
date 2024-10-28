@@ -26,30 +26,29 @@ class abmUsuario{
         return $resp;
     }
       
-    public function cargarObjeto($parametro){
+    public function cargarObjeto($param){
         $obj = null;
-
-        if( array_key_exists('idUsuario', $parametro) 
-            and array_key_exists('usNombre', $parametro)){
+        
+        if(array_key_exists('idUsuario',$param) and array_key_exists('usNombre',$param) and array_key_exists('usPass',$param)and array_key_exists('usMail',$param)){
             $obj = new Usuario();
-            $obj->cargar($parametro);
+            $obj->cargar($param);
         }
+
+        return $obj;
     }
 
     private function cargarObjetosConClave($param){
         $obj = null;
-
-        if( isset($param['idUsuario']) ){
+        if(isset($param['idUsuario'])){
             $obj = new Usuario();
-            $obj->setIdUsuario($param['idUsuario']);
-            $obj->cargar();
+            $obj->cargar($param['idUsuario'], null,null,null,null);
         }
+        return $obj;
     }
 
-    private function setadosCamposClaves($param){
+    private function seteadosCamposClaves($param){
         $resp = false;
-
-        if( isset($param['idUsuario']) ){
+        if(isset($param['idUsuario'])){
             $resp = true;
         }
 
@@ -58,22 +57,27 @@ class abmUsuario{
 
     public function alta($param) {
         $resp = false;
+        $param['idUsuario'] = null;
+        $param['usDeshabilitado'] = '0000-00-00 00:00:00';
+        
         $elObjtTabla = $this->cargarObjeto($param);
         if ($elObjtTabla != null && $elObjtTabla->insertar()) {
             $resp = true;
         }
+        
         return $resp;
     }
 
     public function baja($param) {
         $resp = false;
-        if ($this->seteadosCamposClaves($param)) {
-            $elObjtTabla = $this->cargarObjetoConClave($param);
-            if ($elObjtTabla != null && $elObjtTabla->eliminar()) {
-                $resp = true;
-            }
+        $param['idUsuario'] = null;
+        $param['usMail'] = null;
+        $param['usDeshabilitado'] = date('Y-m-d');
+        
+        $elObjtTabla = $this->cargarObjeto($param);
+        if ($elObjtTabla != null && $elObjtTabla->eliminar($param)) {
+            $resp = true;
         }
-
         return $resp;
     }
 
@@ -86,7 +90,7 @@ class abmUsuario{
         $resp = false;
         if ($this->seteadosCamposClaves($param)) {
             $elObjtTabla = $this->cargarObjeto($param);
-            if ($elObjtTabla != null && $elObjtTabla->modificar()) {
+            if ($elObjtTabla != null && $elObjtTabla->modificar()){
                 $resp = true;
             }
         }
@@ -128,21 +132,24 @@ class abmUsuario{
                 $where .= " and usDeshabilitado = '" . $param['usDeshabilitado'] . "'";
         }
         
-        $obj = new Persona();
+        $obj = new Usuario();
         
         $arreglo = $obj->listar($where);
         $result = [];
         if (!empty($arreglo)) {
-            foreach ($arreglo as $persona) {
-            $result[] = ['idUsuario' => $persona->getIdUsuario(),
-            'usNombre' => $persona->getUsNombre(),
-            'usPass' => $persona->getUsPass(),
-            'usPass' => $persona->getUsPass(),
-            'usMail' => $persona->getUsMail(),
-            'usDeshabilitado' => $persona->getUsDeshabilitado()];
+            foreach ($arreglo as $usuario) {
+                $result[] = [
+                'idUsuario' => $usuario->getIdUsuario(),
+                'usNombre' => $usuario->getUsNombre(),
+                'usPass' => $usuario->getUsPass(),
+                'usMail' => $usuario->getUsMail(),
+                'usDeshabilitado' => $usuario->getUsDeshabilitado()
+                ];
             }
         }
         return $result;
     }
 
+
+    
 }

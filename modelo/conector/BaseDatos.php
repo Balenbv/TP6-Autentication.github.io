@@ -93,7 +93,23 @@ class BaseDatos extends PDO {
         return "\n".$this->sql;
         
     }
+    private function setIndice ($valor){
+        $this->indice = $valor;
+    }
     
+    private function getIndice (){
+        return $this->indice;
+        
+    }
+    private function setResultado($valor){
+        $this->resultado = $valor;
+        
+    }
+    private function getResultado(){
+       
+       return $this->resultado;
+    }
+
     public function Ejecutar($sql){
         $this->setError("");
         $this->setSQL($sql);
@@ -117,8 +133,8 @@ class BaseDatos extends PDO {
     *caso contrario se retorna -1
     */
    
-   private function EjecutarInsert($sql){
-       $resultado=parent::query($sql);
+    public function EjecutarInsert($sql){
+       $resultado = parent::query($sql);
        if(!$resultado){
            $this->analizarDebug();
            $id=0;
@@ -131,6 +147,17 @@ class BaseDatos extends PDO {
        }
        return $id;
    }
+
+    public function getUltimoId() {
+        try {
+            $id = $this->lastInsertId();
+            return $id ? $id : -1;
+        } catch (Exception $e) {
+            $this->analizarDebug();
+            return 0;
+        }
+    }
+
 
    /**
     * Devuelve la cantidad de filas afectadas por la ejecucion SQL. Si el valor es <0 no se pudo realizar la opercion
@@ -210,25 +237,6 @@ class BaseDatos extends PDO {
           // print_r($e);
           // echo "</pre>";
        }
+   }
        
-       
-   }
-   
-   private function setIndice ($valor){
-       $this->indice = $valor;
-   }
-   
-   private function getIndice (){
-       return $this->indice;
-       
-   }
-   private function setResultado($valor){
-       $this->resultado = $valor;
-       
-   }
-   private function getResultado(){
-      
-      return $this->resultado;
-   }
-   
 } 

@@ -1,11 +1,12 @@
 CREATE TABLE `usuario` (
-    idUsuario bigint(20) NOT NULL,
-    usNombre varchar(50),
-    usPass int(11),
-    usMail varchar(50),
-    usDeshabilitado timestamp,
+    idUsuario BIGINT(20) NOT NULL AUTO_INCREMENT,
+    usNombre VARCHAR(50),
+    usPass VARCHAR(11),
+    usMail VARCHAR(50),
+    usDeshabilitado TIMESTAMP,
     PRIMARY KEY (`idUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE `rol` (
     idRol bigint(20),
