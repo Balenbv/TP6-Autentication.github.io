@@ -5,8 +5,12 @@ include '../../config.php';
 $abmUsuario = new abmUsuario();
 $datosUsuario = data_submitted();
 $datosUsuario['accion'] = 'nuevo';
+try {
+    $abmUsuario->abm($datosUsuario);
+} catch (Exception $e) {
+    echo "Error al registrar el usuario";
+}
 
-$abmUsuario->abm($datosUsuario);
 
 verEstructura($datosUsuario);
 

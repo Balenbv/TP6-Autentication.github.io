@@ -6,7 +6,11 @@ verEstructura($datosUsuario);
 
 $abmUsuario = new abmUsuario();
 $datosUsuario['accion'] = 'editar';
-$abmUsuario->abm($datosUsuario);
+try{
+    $abmUsuario->abm($datosUsuario);
+} catch (Exception $e) {
+    echo "Error al actualizar el usuario";
+}
 ?>
 
 <h1>Se actualizo correctamente sus datos</h1>

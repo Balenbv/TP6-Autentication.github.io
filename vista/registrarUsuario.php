@@ -22,9 +22,8 @@
         <label for="usMail">Ingrese su mail</label>
         <input type="text" name="usMail" id="usMail" required>
         <br>
-
         <input type="submit" value="Ingresar">
-
+        <input type="hidden" value="false" name="usDeshabilitado">
     </form>
 
     <script>
