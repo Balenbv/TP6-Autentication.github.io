@@ -43,6 +43,7 @@
         
     </script>
     <a href='./index.php'><button>Volver al index</button></a>
+    <a href="./listarUsuario.php"><button>Volver al listar</button></a>
 </body>
 
 
