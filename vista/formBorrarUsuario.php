@@ -14,13 +14,14 @@
 <body>
     <h1>Borrar Usuario</h1>
     <form action="../vista/Action/eliminarLogin.php" id="loginForm"method="POST">
-        <label for="usNombre">Nombre de Usuario</label>
-        <input type="text" name="usNombre" id="usNombre" required>
-        <label for="usPass">Contraseña</label>
-        <input type="password" name="usPass" id="usPass" required>
+        <label for="idUsuario">Id usuario</label>
+        <input type="int" name="idUsuario" id="idUsuario" required>
+
         <input type="submit" value="Ingresar">
+
     </form>
-    <a href='./index.php'><button>Volver al index</button></a>;
+    <a href="./listarUsuario.php"><button>Volver al listar</button></a>
+    <a href='./index.php'><button>Volver al index</button></a>
 </body>
 
 </html>

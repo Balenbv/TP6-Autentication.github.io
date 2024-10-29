@@ -150,6 +150,9 @@ class abmUsuario{
         return $result;
     }
 
-
+    public function ultimoId(){
+        $obj = new Usuario();
+        return $obj->getUltimoId();
+    }   
     
 }

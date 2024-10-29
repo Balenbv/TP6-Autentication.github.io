@@ -139,6 +139,8 @@ class Usuario extends BaseDatos{
         return $arreglo;
     }
 
+   
+
     public function __toString(){
         return "IdUsuario: ".$this->getIdUsuario()."\nUsNombre: ".$this->getUsNombre()."\nUsPass: ".$this->getUsPass()."\nUsMail: ".$this->getUsMail()."\nUsDeshabilitado: ".$this->getUsDeshabilitado();
     }

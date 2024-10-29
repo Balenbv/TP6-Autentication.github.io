@@ -6,6 +6,8 @@ verEstructura($datosUsuario);
 
 $abmUsuario = new abmUsuario();
 $datosUsuario['accion'] = 'borrar';
+$datosUsuario['idUsuario'] = $abmUsuario->ultimoId();
+
 try{
     $abmUsuario->abm($datosUsuario);
 } catch (Exception $e) {
@@ -15,7 +17,4 @@ try{
 echo "<a href='../index.php'><button>Volver al index</button></a>";
 ?>
 
-<h1>Se borro el usuario</h1>
-
-
-
+<!--- <h1>Se borro el usuario</h1> --->

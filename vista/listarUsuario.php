@@ -3,31 +3,23 @@ include_once '../config.php';
 
 
 $abmUsuario = new abmUsuario();
-echo $abmUsuario->buscar(null);
+$usuarios = $abmUsuario->obtenerDatos(null);
 
     if (isset($usuarios)){
         foreach ($usuarios as $usuario) {
-            
-            $usuarioId = $usuario->getId();
-            $usNombre = $usuario->getUsNombre();
-            $uspass = $usuario->getUsPass();
-            $usMail = $usuario->getUsuario();
-            echo $usuarioId."\n";
-            echo $usNombre.'\n';
-            echo $uspass.'\n';
-            echo $usMail.'\n';
+            echo "<p>Nombre de Usuario: ".$usuario['usNombre']."</p>";
+            echo "<p>Mail: ".$usuario['usMail']."</p>";
+            echo "<p> Este es tu id: ". $usuario['']."</p>";
+            echo "<br>";
         }
-        
     } else {
         echo "no hay nada";
     }
 
     echo "<a href='./index.php'><button>Volver al index</button></a>";
-    echo "<a href='./login.php'><button>Registrar Usuario</button></a>";
+    echo "<a href='./registrarUsuario.php'><button>Registrar Usuario</button></a>";
     echo "<a href='./Action/actualizarLogin.php'><button>actualizar datos del usuario</button></a>";
-    echo "<a href='./Action/eliminarLogin.php'><button>eliminar datos del usuario</button></a>";
-
-    
+    echo "<a href='./Action/eliminarLogin.php'><button>eliminar datos del usuario</button></a>";  
 ?>
 
 
