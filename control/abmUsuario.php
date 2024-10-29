@@ -41,7 +41,7 @@ class abmUsuario{
         $obj = null;
         if(isset($param['idUsuario'])){
             $obj = new Usuario();
-            $obj->cargar($param['idUsuario'], null,null,null,null);
+            $obj->cargar($param);
         }
         return $obj;
     }
@@ -51,14 +51,13 @@ class abmUsuario{
         if(isset($param['idUsuario'])){
             $resp = true;
         }
-
         return $resp;
     }
 
     public function alta($param) {
         $resp = false;
         $param['idUsuario'] = null;
-        $param['usDeshabilitado'] = '0000-00-00 00:00:00';
+        $param['usDeshabilitado'] = null;
         
         $elObjtTabla = $this->cargarObjeto($param);
         if ($elObjtTabla != null && $elObjtTabla->insertar()) {
@@ -70,14 +69,16 @@ class abmUsuario{
 
     public function baja($param) {
         $resp = false;
-        $param['idUsuario'] = null;
-        $param['usMail'] = null;
-        $param['usDeshabilitado'] = date('Y-m-d');
-        
-        $elObjtTabla = $this->cargarObjeto($param);
+        $param['usDeshabilitado'] = date('Y-m-d') . " " . date('H:i:s');
+        verEstructura($param);
+        $elObjtTabla = $this->cargarObjetosConClave($param);
+        verEstructura($elObjtTabla);
         if ($elObjtTabla != null && $elObjtTabla->eliminar($param)) {
             $resp = true;
         }
+        $mensaje = ($resp) ? "Se dio la baja" : "No se dio la baja . maldito :(";
+        echo $mensaje;
+
         return $resp;
     }
 

@@ -48,14 +48,11 @@ class Usuario extends BaseDatos{
     }
     
     public function cargar($datosUsuario){
-        $this->setIdUsuario($datosUsuario['idUsuario']);
-        $this->setUsNombre($datosUsuario['usNombre']);
-        $this->setUsPass($datosUsuario['usPass']);
-        $this->setUsMail($datosUsuario['usMail']);
-        if($datosUsuario['usDeshabilitado'] = '0000-00-00 00:00:00'){
-            $usdeshabilitado = "null";
-        }
-        $this->setUsDeshabilitado($datosUsuario['usDeshabilitado']);
+        isset($datosUsuario['idUsuario']) ? $this->setIdUsuario($datosUsuario['idUsuario']) : $this->setIdUsuario(null);
+        isset($datosUsuario['usNombre']) ? $this->setUsNombre($datosUsuario['usNombre']) : $this->setUsNombre(null);
+        isset($datosUsuario['usPass']) ? $this->setUsPass($datosUsuario['usPass']) : $this->setUsPass(null);
+        isset($datosUsuario['usMail']) ? $this->setUsMail($datosUsuario['usMail']) : $this->setUsMail(null);
+        isset($datosUsuario['usDeshabilitado']) ? $this->setUsDeshabilitado($datosUsuario['usDeshabilitado']) : $this->setUsDeshabilitado('0000-00-00 00:00:00');
     }
 
     public function insertar(){
@@ -98,9 +95,8 @@ class Usuario extends BaseDatos{
         $resp = false;
         $base=new BaseDatos();
 
-        print_r($param);
-        $sql="UPDATE usuario SET '".$this->getUsDeshabilitado()."' WHERE idUsuario=".$this->getIdUsuario();
-
+        $sql="UPDATE usuario SET usDeshabilitado = '".$this->getUsDeshabilitado()."' WHERE idUsuario=".$this->getIdUsuario();
+        verEstructura($sql);
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;

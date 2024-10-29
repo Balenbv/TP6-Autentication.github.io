@@ -23,7 +23,7 @@
         <input type="text" name="usMail" id="usMail" required>
         <br>
         <input type="submit" value="Ingresar">
-        <input type="hidden" value="false" name="usDeshabilitado">
+        <input type="hidden" value="null" name="usDeshabilitado">
     </form>
 
     <script>
