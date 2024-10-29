@@ -60,7 +60,6 @@ class Usuario extends BaseDatos{
         $consultaInsertar="INSERT INTO usuario(usNombre, usPass, usMail, usDeshabilitado) VALUES 
         ('".$this->getUsNombre()."','".$this->getUsPass()."','".$this->getUsMail()."','".$this->getUsDeshabilitado()."')";
         $resp= false;
-        echo "<h1>Consulta: ".$consultaInsertar."</h1>";
         if($base->Iniciar()){
             if($id = $base->Ejecutar($consultaInsertar)){
                 $this->setIdUsuario($id);
@@ -77,7 +76,6 @@ class Usuario extends BaseDatos{
     public function modificar(){
         $base=new BaseDatos();
         $resp = false;
-       
         if($base->Iniciar()){
             $consultaModifica="UPDATE usuario SET usNombre= '".$this->getUsNombre()."',usPass='".$this->getUsPass()."',usMail='".$this->getUsMail()."',usDeshabilitado='".$this->getUsDeshabilitado()."' WHERE idUsuario=".$this->getIdUsuario();
             if($base->Ejecutar($consultaModifica)){

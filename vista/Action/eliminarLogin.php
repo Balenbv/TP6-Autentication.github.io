@@ -6,7 +6,7 @@ verEstructura($datosUsuario);
 
 $abmUsuario = new abmUsuario();
 $datosUsuario['accion'] = 'borrar';
-$datosUsuario['idUsuario'] = intval($datosUsuario['idUsuario']);
+$datosUsuario['idUsuario'] = $datosUsuario['idUsuario'];
 
 try{
     $abmUsuario->abm($datosUsuario);

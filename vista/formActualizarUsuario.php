@@ -14,19 +14,37 @@
 <body>
     <h1>Actualizar Usuario</h1>
     <form action="../vista/Action/actualizarLogin.php" id="loginForm"method="POST">
-    <label for="usNombre">Nombre de Usuario</label>
+        <label for="idUsuario">Ingrese el ID</label>
+        <input type="text" name="idUsuario" id="idUsuario" required>
+        <br>
+        <label for="usNombre">El nuevo nombre de Usuario</label>
         <input type="text" name="usNombre" id="usNombre" required>
         <br>
-        <label for="usPass">Contraseña</label>
+        <label for="usPass">La nueva contraseña</label>
         <input type="password" name="usPass" id="usPass" required>
         <br>
-        <label for="usMail">Ingrese su mail</label>
+        <label for="usMail">El nuevo mail</label>
         <input type="text" name="usMail" id="usMail" required>
         <br>
-
         <input type="submit" value="Ingresar">
-
     </form>
+
+        <script>
+          $(document).ready(function() {
+            $('#loginForm').on('submit', function(e) {
+                
+                var password = $('#usPass').val();
+                var encryptedPassword = hex_md5(password);
+                $('#usPass').val(encryptedPassword);
+
+                setTimeout(function() {
+                    $('#usPass').val(''); // Limpiar el campo de contraseña después de enviar el formulario
+                }, 1);
+
+            });
+        });
+        
+    </script>
     <a href='./index.php'><button>Volver al index</button></a>
 </body>
 
