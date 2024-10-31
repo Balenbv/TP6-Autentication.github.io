@@ -2,12 +2,14 @@
 header('Content-Type: text/html;charset=utf-8');
 header ("Cache-Control: no-cache,must-revalidate");
 
+//arregla el problema del root undefined
+session_start();
 /////////////////////////////
 // CONFIGURACION APP//
 /////////////////////////////
 
 //cambie la ruta porque estaba una que no era la ruta de la carpeta 
-$PROYECTO ='TP6-AUTENTICATION.GITHUB.IO';
+$PROYECTO ='TP6-Autentication.github.io';
 
 //variable que almacena el directorio del proyecto
 $ROOT = $_SERVER['DOCUMENT_ROOT']."/$PROYECTO/";
@@ -21,6 +23,6 @@ $INICIO = "Location:http://".$_SERVER['HTTP_HOST']."/$PROYECTO/vista/login/login
 // variable que define la pagina principal del proyecto (menu principal)
 $PRINCIPAL = "Location:http://".$_SERVER['HTTP_HOST']."/$PROYECTO/principal.php";
 
-
 $_SESSION['ROOT'] = $ROOT;
+
 ?>

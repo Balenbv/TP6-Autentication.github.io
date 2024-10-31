@@ -2,11 +2,13 @@
  class Session {
  
     public function __construct() {
-        session_start();
+        //se va a romper el root si pones eso 
+        //session_start();
     }
 
-    //getidUsuario().Devuelve el idUsuario logeado.
-    public function getIdUsuario(){
+    // ********* Usar en caso especifico ********* //
+    //getUsuario().Devuelve el getUsuario logeado.
+    public function getUsuario(){
         $usuario = null;
         if($this->validar()){
             $obj = new ABMUsuario();
@@ -39,11 +41,13 @@
     public function iniciar($nombreidUsuario ,$psw){
         $boolean = false;
         $obj = new ABMUsuario();
-        $param['usnombre'] = $nombreidUsuario;
-        $param['uspass'] = $psw;
-        $param['usdeshabilitado'] ='0000-00-00 00:00:00';
+        $arrayDatos['usnombre'] = $nombreidUsuario;
+        $arrayDatos['uspass'] = $psw;
+        $arrayDatos['usdeshabilitado'] ='0000-00-00 00:00:00';
 
-        $resultado = $obj->buscar($param);
+        $resultado = $obj->buscar($arrayDatos);
+
+        //no va a andar si la base de datos no tiene nada
         if(count($resultado) > 0){
             $usuario = $resultado[0];
             $_SESSION['idUsuario'] = $usuario->getIdUsuario();
@@ -51,6 +55,7 @@
         } else {
             $this->cerrar();
         }
+
         return $boolean;
     }
     
@@ -58,26 +63,12 @@
     // validar(). Valida si la sesion actual tiene idUsuario y password  validos. Devuelve true o false.
     // @param no hay
     //return boolean
-
-    public function validar() {
-    $boolean = false;
-    $objUsuario = new abmUsuario();
-    
-    if ($this->activa()) {
-        $usuarioSesion = $this->getIdUsuario();
-        
-        $arrayUsuarios = $objUsuario->buscar(['usNombre' => $usuarioSesion->getUsNombre()]);
-        
-        if (count($arrayUsuarios) > 0) {
-            $objUsuario = $arrayUsuarios[0];
-            if ($objUsuario->getUsPass() == $usuarioSesion->getUsPass()) {
-                $boolean = true;
-            }
-        }
+    public function validar(){
+        $resp = false;
+        if($this->activa() && isset($_SESSION['idusuario']))
+            $resp=true;
+        return $resp;
     }
-
-    return $boolean;
-}
 
    
 

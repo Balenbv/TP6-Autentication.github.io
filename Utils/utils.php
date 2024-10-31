@@ -24,11 +24,13 @@ function verEstructura($e){
 }
 
 spl_autoload_register(function ($class_name){
-    $directorys = array(
+    
+    $directorys = [
         $_SESSION['ROOT'].'modelo/',
         $_SESSION['ROOT'].'modelo/conector/',
         $_SESSION['ROOT'].'control/',
-    );
+    ];
+
     $i = 0;
     $LoEncontro = false;
     while($i < count($directorys) && !$LoEncontro){
