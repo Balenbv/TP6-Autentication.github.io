@@ -19,7 +19,6 @@
         
 
     public function iniciar($nombreidUsuario ,$psw){
-        session_start();
         $bolean = false;
         $objUsuario = new abmUsuario();
         $arrayLlaves = [];
@@ -28,11 +27,11 @@
         $arrayLlaves['usPass']= $psw;
         $arrayLlaves['usDeshabilitado']= 'null';
 
-        $usuarios = $objUsuario->buscar($arrayLlaves);
+        $abmUsuarios = $objUsuario->buscar($arrayLlaves);
 
-        if(count($usuarios) > 0){
+        if(count($abmUsuarios) > 0){
             if($this->validar()){
-                $usuario = $usuarios[0];
+                $usuario = $abmUsuarios[0];
                 $this->getIdUsuario()->setUsNombre($usuario->getUsNombre());
                 $this->getIdUsuario()->setUsPass($usuario->getUsPass());
                 $bolean = true;
@@ -41,7 +40,8 @@
         }else{
             $this->cerrar();
         }
-
+        $mensaje = $boolean ? "true" : "false";
+        echo "la funcion iniciar devuelve".$mensaje;
         return $bolean;
     }
     
