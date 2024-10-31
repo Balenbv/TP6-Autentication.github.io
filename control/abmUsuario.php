@@ -69,14 +69,12 @@ class abmUsuario{
     public function baja($param) {
         $resp = false;
         $param['usDeshabilitado'] = date('Y-m-d') . " " . date('H:i:s');
-        verEstructura($param);
+
         $elObjtTabla = $this->cargarObjetosConClave($param);
-        verEstructura($elObjtTabla);
         if ($elObjtTabla != null && $elObjtTabla->eliminar($param)) {
             $resp = true;
         }
-        $mensaje = ($resp) ? "Se dio la baja" : "No se dio la baja . maldito :(";
-
+        
         return $resp;
     }
 

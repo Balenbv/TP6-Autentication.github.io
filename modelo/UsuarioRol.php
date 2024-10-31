@@ -55,7 +55,6 @@ class UsuarioRol extends BaseDatos{
         return $resp;
     }
 
-    //hay que consultar el tema de que es una doble foranea , no sabes si hay que actualizarlo
     public function modificacion(){
         $resp = false;
         $base=new BaseDatos();
@@ -71,7 +70,5 @@ class UsuarioRol extends BaseDatos{
         }
         return $resp;
     }
-
-
-
+    
 }

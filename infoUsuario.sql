@@ -9,7 +9,7 @@ CREATE TABLE `usuario` (
 
 
 CREATE TABLE `rol` (
-    idRol bigint(20),
+    idRol bigint(20) NOT NULL AUTO_INCREMENT,
     rolDescripcion varchar(50),
     PRIMARY KEY(`idRol`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

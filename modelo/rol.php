@@ -24,7 +24,7 @@ class Rol extends BaseDatos{
 
     public function alta(){
         $base=new BaseDatos();
-        $consultaInsertar="INSERT INTO Rol(idRol, rolDescripcion) VALUES ('".$this->getIdRol()."','".$this->getRolDescripcion()."')";
+        $consultaInsertar = "INSERT INTO Rol(idRol, rolDescripcion) VALUES ('".$this->getIdRol()."','".$this->getRolDescripcion()."')";
         $resp= false;
         if($base->Iniciar()){
             if($base->Ejecutar($consultaInsertar)){
@@ -66,6 +66,10 @@ class Rol extends BaseDatos{
             $this->setUsDeshabilitado(1);
         }
         return $resp;
+    }
+
+    public function __toString(){
+        return "IdRol: ".$this->getIdRol()."\nRolDescripcion: ".$this->getRolDescripcion();
     }
 
 }
