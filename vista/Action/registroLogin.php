@@ -11,7 +11,6 @@ try {
     if($session->iniciar($datosUsuario['usNombre'] ,$datosUsuario['usPass'])){
         $datosUsuario['accion'] = 'nuevo';
         $abmUsuario->abm($datosUsuario);
-        echo "Ingreso";
     }else{
         throw new Exception("<p>La sesion no se pudo confirma de manera exitosa</p>");
     }

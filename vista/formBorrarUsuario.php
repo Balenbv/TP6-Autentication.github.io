@@ -9,19 +9,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
     <script src="./Action/Assets/md5.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 
 <body>
-    <h1>Borrar Usuario</h1>
-    <form action="../vista/Action/eliminarLogin.php" id="loginForm"method="POST">
-        <label for="idUsuario">Id usuario</label>
-        <input type="int" name="idUsuario" id="idUsuario" required>
+    <div class="container mt-5">
+        <h1>Borrar Usuario</h1>
+        <form action="../vista/Action/eliminarLogin.php" id="loginForm"method="POST">
+            <label for="idUsuario">Id usuario</label>
+            <input type="int" name="idUsuario" id="idUsuario" class="form-control" required>
 
-        <input type="submit" value="Ingresar">
+            <input type="submit" value="Ingresar" class="btn btn-primary">
 
-    </form>
-    <a href="./listarUsuario.php"><button>Volver al listar</button></a>
-    <a href='./index.php'><button>Volver al index</button></a>
+        </form>
+        <div class="container">
+            <a href="./listarUsuario.php"><button class="btn btn-light mt-5 border-dark">Volver al listar</button></a>
+            <a href='./index.php'><button class="btn btn-light mt-5 border-dark">Volver al index</button></a>
+        </div>
+
+    </div>
+
 </body>
 
 </html>

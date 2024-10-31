@@ -9,22 +9,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
     <script src="./Action/Assets/md5.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
-    <form action="../vista/Action/registroLogin.php" id="loginForm" method="POST">
-        <label for="usNombre">Nombre de Usuario</label>
-        <input type="text" name="usNombre" id="usNombre" required>
-        <br>
-        <label for="usPass">Contraseña</label>
-        <input type="password" name="usPass" id="usPass" required>
-        <br>
-        <label for="usMail">Ingrese su mail</label>
-        <input type="text" name="usMail" id="usMail" required>
-        <br>
-        <input type="submit" value="Ingresar">
-        <input type="hidden" value="null" name="usDeshabilitado">
-    </form>
+    <div class="container align-center justify-center mt-5 ">
+            <form action="../vista/Action/registroLogin.php" id="loginForm" method="POST">
+                    <div style="container ">
+                        <div class="form-group">
+                            <label for="usNombre" class="form-label">Nombre de Usuario</label>
+                            <input type="text" name="usNombre" id="usNombre" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="usPass" class="form-label">Contraseña</label>
+                            <input type="password" name="usPass" id="usPass" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="usMail" class="form-label">Ingrese su mail</label>
+                            <input type="text" name="usMail" id="usMail" class="form-control" required>
+                        </div>
+                        <input type="submit" value="Ingresar" class="btn btn-primary">
+                        <input type="hidden" value="null" name="usDeshabilitado">
+                    </div>
+            </form>
+            <a href='./index.php' class="btn btn-light"><button class="btn btn-light">Volver al index</button></a>
+            <a href="./listarUsuario.php" class="btn btn-light"><button class="btn btn-light">Volver al listar</button></a>
+    </div>
 
     <script>
           $(document).ready(function() {
@@ -42,8 +52,7 @@
         });
         
     </script>
-    <a href='./index.php'><button>Volver al index</button></a>
-    <a href="./listarUsuario.php"><button>Volver al listar</button></a>
+
 </body>
 
 

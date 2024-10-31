@@ -24,7 +24,6 @@ function verEstructura($e){
 }
 
 spl_autoload_register(function ($class_name){
-    
     $directorys = [
         $_SESSION['ROOT'].'modelo/',
         $_SESSION['ROOT'].'modelo/conector/',
