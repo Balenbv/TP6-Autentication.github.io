@@ -15,6 +15,7 @@ include_once '../config.php';
             <?php
             $abmUsuario = new abmUsuario();
             $usuarios = $abmUsuario->obtenerDatos(null);
+            $session = new Session();
 
                 if (isset($usuarios)){
                     foreach ($usuarios as $usuario) {
@@ -32,8 +33,7 @@ include_once '../config.php';
             ?>
         </div>
 
-        <a href='./index.php'><button class="btn btn-light border-dark">Volver al index</button></a>
-        <a href='./registrarUsuario.php'><button class="btn btn-light border-dark">Registrar Usuario</button></a>
+        <a href='../index.php'><button class="btn btn-light border-dark"><?php $session->cerrar()?>cerrar sesion</button></a>
         <a href='./formActualizarUsuario.php'><button class="btn btn-light border-dark">actualizar datos del usuario</button></a>
         <a href='./formBorrarUsuario.php'><button class="btn btn-light border-dark">eliminar datos del usuario</button></a>
     </div>
