@@ -6,6 +6,7 @@
         //session_start();
     }
 
+    
     // ********* Usar en caso especifico ********* //
     //getUsuario().Devuelve el getUsuario logeado.
     public function getUsuario(){

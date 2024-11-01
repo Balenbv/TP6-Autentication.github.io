@@ -85,7 +85,7 @@ class abmUsuario{
      */
     public function modificacion($param) {
         $resp = false;
-        if ($this->seteadosCamposClaves($param)) {
+        if ($this->seteadosCamposClaves($param)){
             $elObjtTabla = $this->cargarObjeto($param);
             if ($elObjtTabla != null && $elObjtTabla->modificar()){
                 $resp = true;
@@ -147,9 +147,5 @@ class abmUsuario{
         return $result;
     }
 
-    public function ultimoId(){
-        $obj = new Usuario();
-        return $obj->getUltimoId();
-    }   
     
 }
