@@ -20,13 +20,12 @@
             <label for="idUsuario">Id usuario</label>
             <input type="int" name="idUsuario" id="idUsuario" class="form-control" required>
 
-            <input type="submit" value="Ingresar" class="btn btn-primary">
-
+            <input type="submit" value="Ingresar" class="btn btn-primary mt-2">
+            <br>
         </form>
-        <div class="container">
-            <a href="./listarUsuario.php"><button class="btn btn-light mt-5 border-dark">Volver al listar</button></a>
-            <a href='./index.php'><button class="btn btn-light mt-5 border-dark">Volver al index</button></a>
-        </div>
+        <a href="./listarUsuario.php"><button class="btn btn-light mt-5 border-dark">Volver al listar</button></a>
+
+
 
     </div>
 
