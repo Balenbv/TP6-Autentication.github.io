@@ -113,7 +113,7 @@ class Usuario extends BaseDatos{
         $arreglo = null;
         $base = new BaseDatos();
         $sql=" SELECT * FROM usuario ";
-        
+
         if ($param != "") {
             $sql .= ' WHERE '.$param;
         }

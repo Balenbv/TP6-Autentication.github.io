@@ -12,7 +12,7 @@
     public function getUsuario(){
         $usuario = null;
         if($this->validar()){
-            $obj = new ABMUsuario();
+            $obj = new abmUsuario();
             $param['idUsuario'] = $_SESSION['idUsuario'];
             $resultado = $obj->buscar($param);
 
@@ -27,7 +27,7 @@
     public function getRol(){
         $list_rol = null;
         if($this->validar()){
-            $obj = new ABMUsuario();
+            $obj = new abmUsuario();
              $param['idUsuario'] = $_SESSION['idUsuario'];
              $resultado = $obj->darRoles($param);
              
@@ -41,10 +41,10 @@
     // Actualiza las variables de sesion con los valores ingresados.
     public function iniciar($nombreidUsuario ,$psw){
         $boolean = false;
-        $obj = new ABMUsuario();
-        $arrayDatos['usnombre'] = $nombreidUsuario;
+        $obj = new abmUsuario();
+        $arrayDatos['usNombre'] = $nombreidUsuario;
         $arrayDatos['uspass'] = $psw;
-        $arrayDatos['usdeshabilitado'] ='0000-00-00 00:00:00';
+        $arrayDatos['usDeshabilitado'] ='0000-00-00 00:00:00';
 
         $resultado = $obj->buscar($arrayDatos);
 

@@ -8,13 +8,13 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
-    <script src="./Action/Assets/md5.js"></script>
+    <script src="../Action/Assets/md5.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="container align-center justify-center mt-5 ">
-            <form action="../vista/Action/registroLogin.php" id="loginForm" method="POST">
+            <form action="action.php" id="loginForm" method="POST">
                     <div style="container ">
                         <div class="form-group">
                             <label for="usNombre" class="form-label">Nombre de Usuario</label>
@@ -37,6 +37,7 @@
     </div>
 
     <script>
+        alert("Para ingresar al sistema, por favor, complete los campos solicitados.");
           $(document).ready(function() {
             $('#loginForm').on('submit', function(e) {
                 

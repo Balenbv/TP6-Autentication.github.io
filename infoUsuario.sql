@@ -1,7 +1,7 @@
 CREATE TABLE `usuario` (
     idUsuario BIGINT(20) NOT NULL AUTO_INCREMENT,
     usNombre VARCHAR(50),
-    usPass VARCHAR(11),
+    usPass VARCHAR(200),
     usMail VARCHAR(50),
     usDeshabilitado TIMESTAMP,
     PRIMARY KEY (`idUsuario`)
