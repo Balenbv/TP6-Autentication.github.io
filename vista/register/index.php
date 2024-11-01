@@ -28,16 +28,13 @@
                             <label for="usMail" class="form-label">Ingrese su mail</label>
                             <input type="text" name="usMail" id="usMail" class="form-control" required>
                         </div>
-                        <input type="submit" value="Ingresar" class="btn btn-primary">
+                        <input type="submit" value="Ingresar" class="btn btn-primary mt-4">
                         <input type="hidden" value="null" name="usDeshabilitado">
                     </div>
             </form>
-            <a href='./index.php' class="btn btn-light"><button class="btn btn-light">Volver al index</button></a>
-            <a href="./listarUsuario.php" class="btn btn-light"><button class="btn btn-light">Volver al listar</button></a>
-    </div>
+            <a href='../../index.php' class="btn btn-light mt-4"><button class="btn btn-light">Volver al index</button></a>    </div>
 
     <script>
-        alert("Para ingresar al sistema, por favor, complete los campos solicitados.");
           $(document).ready(function() {
             $('#loginForm').on('submit', function(e) {
                 

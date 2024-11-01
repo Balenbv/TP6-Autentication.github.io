@@ -9,9 +9,9 @@ $abmUsuario = new abmUsuario();
 
 try{
     $datosUsuario['accion'] = 'nuevo';
-    verEstructura($datosUsuario);
     $abmUsuario->abm($datosUsuario);
-    echo "<p>Se registro correctamente:</p>";
+    header("Location: ../login/index.php");
+
 } catch (Exception $e) {
     echo "Se podrujo un error: " . $e->message();
 }

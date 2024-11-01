@@ -117,10 +117,12 @@ class Usuario extends BaseDatos{
         if ($param != "") {
             $sql .= ' WHERE '.$param;
         }
+
         $res = $base->Ejecutar($sql);
+
         if($res>-1){
             if($res>0){
-                $arreglo= array();
+                $arreglo = array();
                 while($row = $base->Registro()){
                     $obj = new Usuario();
                     $obj->cargar($row);
@@ -130,6 +132,7 @@ class Usuario extends BaseDatos{
         } else {
             $this->setUsDeshabilitado(1);
         }
+        
         return $arreglo;
     }
 

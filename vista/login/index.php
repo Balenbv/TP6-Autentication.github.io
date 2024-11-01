@@ -18,8 +18,12 @@
 
 <body>
     <div class="container align-center justify-center mt-5 ">
-            <form action="./action" id="loginForm" method="POST">
+            <form action="./action.php" id="loginForm" method="POST">
                     <div style="container ">
+                        <div class="form-group">
+                            <label for="idUsuario" class="form-label">Ingresa ID:</label>
+                            <input type="text" name="idUsuario" id="idUsuario" class="form-control" required>
+                        </div>
                         <div class="form-group">
                             <label for="usNombre" class="form-label">Ingresa nombre usuario:</label>
                             <input type="text" name="usNombre" id="usNombre" class="form-control" required>
@@ -29,8 +33,8 @@
                             <input type="password" name="usPass" id="usPass" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="usPass" class="form-label">Ingrese su correo:</label>
-                            <input type="password" name="usPass" id="usPass" class="form-control" required>
+                            <label for="usMail" class="form-label">Ingrese su correo:</label>
+                            <input type="mail" name="usMail" id="usMail" class="form-control" required>
                         </div>
 
                         <div class="form-group mt-5">
